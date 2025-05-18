@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "520892267183",
+    "project_id": "webview-fedfa",
+    "storage_bucket": "webview-fedfa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520892267183:android:f52a827fb5adb82c78b25a",
+        "android_client_info": {
+          "package_name": "com.layyahdevs.financehero"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5ulWv_G5D6zL7ViMl-8Nqg-pDi0mtfOE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
