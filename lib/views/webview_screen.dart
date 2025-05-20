@@ -183,16 +183,17 @@ class _WebviewScreenState extends State<WebviewScreen> {
                         uri.host == 'm.me') {
                       _launchUrl(uri.toString());
                       return NavigationActionPolicy.CANCEL;
-                    } else if (uri.toString().startsWith('intent://')) {
-                      final fallbackUrl =
-                      _extractBrowserFallbackUrl(uri.toString());
-                      if (fallbackUrl != null) {
-                        _launchUrl(fallbackUrl);
-                      } else {
-                        print('No fallback URL found in intent.');
-                      }
-                      return NavigationActionPolicy.CANCEL;
                     }
+                    // else if (uri.toString().startsWith('intent://')) {
+                    //   final fallbackUrl =
+                    //   _extractBrowserFallbackUrl(uri.toString());
+                    //   if (fallbackUrl != null) {
+                    //     _launchUrl(fallbackUrl);
+                    //   } else {
+                    //     print('No fallback URL found in intent.');
+                    //   }
+                    //   return NavigationActionPolicy.CANCEL;
+                    // }
                   }
 
                   return NavigationActionPolicy.ALLOW;

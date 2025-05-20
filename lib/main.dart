@@ -10,11 +10,15 @@ import 'controllers/goal_controller.dart';
 import 'models/goal_model.dart';
 import 'views/finance/home_screen.dart';
 import 'views/webview_screen.dart';
-
+RxBool loading  = true.obs;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   await Firebase.initializeApp();
+  Get.put(WebviewController()); // ✅ Inject FirebaseController
+  await Future.delayed(Duration(seconds: 2)).then((v){
+    loading.value = false; // Then set loading to false
+  }); // Wait for 2 seconds
+
   await Hive.initFlutter();
   Hive.registerAdapter(GoalModelAdapter());
   Get.put(WebviewController()); // ✅ Inject FirebaseController
@@ -24,12 +28,11 @@ void main() async {
 }
 
 class SavingsGoalApp extends StatelessWidget {
-  const SavingsGoalApp({super.key});
+   SavingsGoalApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     final WebviewController firebaseController = Get.find();
-
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
@@ -48,7 +51,11 @@ class SavingsGoalApp extends StatelessWidget {
             scaffoldBackgroundColor: Colors.white,
             primarySwatch: Colors.green,
           ),
-          home: showWebView
+          home: loading.value || firebaseController.loading.value?Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
+          ): (firebaseController.web.value == "true" && firebaseController.link.value.isNotEmpty)
               ? WebviewScreen(url: firebaseController.link.value)
               : DashboardScreen(),
         );

@@ -1,0 +1,2 @@
+C:/Users/HASSAN COMPUTERS/StudioProjects/financehero/android/app/.cxx/RelWithDebInfo/572s3i6o/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/HASSAN COMPUTERS/StudioProjects/financehero/android/app/.cxx/RelWithDebInfo/572s3i6o/armeabi-v7a/CMakeFiles/rebuild_cache.dir
